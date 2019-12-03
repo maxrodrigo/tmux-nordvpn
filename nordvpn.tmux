@@ -6,10 +6,10 @@ source "$CURRENT_DIR/scripts/helpers.sh"
 
 nvpn_output=$(nordvpn status)
 
-nvpn_status=$(echo "$nvpn_output" | sed -n -e 's/^Status: \(.*\)/\1/p')
-nvpn_server=$(echo "$nvpn_output" | sed -n -e 's/^Current server: \(.*\)/\1/p')
-nvpn_country=$(echo "$nvpn_output" | sed -n -e 's/^Country: \(.*\)/\1/p')
-nvpn_city=$(echo "$nvpn_output" | sed -n -e 's/^City: \(.*\)/\1/p')
+nvpn_status="#($CURRENT_DIR/scripts/status.sh)"
+nvpn_server="#($CURRENT_DIR/scripts/server.sh)"
+nvpn_country="#($CURRENT_DIR/scripts/country.sh)"
+nvpn_city="#($CURRENT_DIR/scripts/city.sh)"
 
 nvpn_status_ph="\#{nordvpn_status}"
 nvpn_server_ph="\#{nordvpn_server}"
