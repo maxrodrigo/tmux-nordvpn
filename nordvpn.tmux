@@ -4,28 +4,28 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source "$CURRENT_DIR/scripts/helpers.sh"
 
-nvpn_output=$(nordvpn status)
+commands=(
+  "#($CURRENT_DIR/scripts/status.sh)"
+  "#($CURRENT_DIR/scripts/server.sh)"
+  "#($CURRENT_DIR/scripts/country.sh)"
+  "#($CURRENT_DIR/scripts/city.sh)"
+)
 
-nvpn_status="#($CURRENT_DIR/scripts/status.sh)"
-nvpn_server="#($CURRENT_DIR/scripts/server.sh)"
-nvpn_country="#($CURRENT_DIR/scripts/country.sh)"
-nvpn_city="#($CURRENT_DIR/scripts/city.sh)"
-
-nvpn_status_ph="\#{nordvpn_status}"
-nvpn_server_ph="\#{nordvpn_server}"
-nvpn_country_ph="\#{nordvpn_country}"
-nvpn_city_ph="\#{nordvpn_city}"
+placeholders=(
+  "\#{nordvpn_status}"
+  "\#{nordvpn_server}"
+  "\#{nordvpn_country}"
+  "\#{nordvpn_city}"
+)
 
 do_interpolation() {
-  local string="$1"
-  local interpolated=""
+  local interpolated="$1"
 
-  interpolated="${string/$nvpn_status_ph/$nvpn_status}"
-  interpolated="${interpolated/$nvpn_server_ph/$nvpn_server}"
-  interpolated="${interpolated/$nvpn_country_ph/$nvpn_country}"
-  interpolated="${interpolated/$nvpn_city_ph/$nvpn_city}"
+  for i in ${!commands[@]} ; do
+    interpolated=${interpolated/${placeholders[$i]}/${commands[$i]}}
+  done
 
-  echo $interpolated
+  echo "$interpolated"
 }
 
 update_tmux_option() {
