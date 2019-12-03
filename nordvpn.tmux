@@ -21,9 +21,9 @@ do_interpolation() {
   local interpolated=""
 
   interpolated="${string/$nvpn_status_ph/$nvpn_status}"
-  interpolated="${string/$nvpn_server_ph/$nvpn_server}"
-  interpolated="${string/$nvpn_country_ph/$nvpn_country}"
-  interpolated="${string/$nvpn_city_ph/$nvpn_city}"
+  interpolated="${interpolated/$nvpn_server_ph/$nvpn_server}"
+  interpolated="${interpolated/$nvpn_country_ph/$nvpn_country}"
+  interpolated="${interpolated/$nvpn_city_ph/$nvpn_city}"
 
   echo $interpolated
 }
