@@ -47,15 +47,24 @@ Example:
 set -g status-right 'NordVPN | status: #{nordvpn_status} - country: #{nordvpn_country}'
 ```
 
-## Available Options
+## Supported Format Strings
 
-placeholder|display
--|-
-`#{nordvpn_status}`		| connection status.
-`#{nordvpn_server}`		| current server.
-`#{nordvpn_country}`	| current connection country.
-`#{nordvpn_city}`		| current connection city.
+- `#{nordvpn_status}` - connection status.
+- `#{nordvpn_server}` - current server.
+- `#{nordvpn_country}` - current connection country.
+- `#{nordvpn_city}` - current connection city.
 
+## Options
+
+Here are all available options with their default values.
+
+- `@nordvpn_exclude_server_domain true` - Remove `nordvpn.com` from the server name.
+
+You can set any of these options in your `.tmux.conf`, for example:
+
+```
+set -g @nordvpn_exclude_server_domain false
+```
 
 ## Contributing
 
