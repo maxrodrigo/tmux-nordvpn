@@ -44,7 +44,7 @@ Add the available format strings to the existing `status-right` or `status-left`
 Example:
 
 ```
-set -g status-right 'NordVPN | status: #{nordvpn_status} - country: #{nordvpn_country}'
+set -g status-right 'NordVPN | status: #{nordvpn_status_color}#{nordvpn_status} - country: #{nordvpn_country}'
 ```
 
 ## Supported Format Strings
@@ -53,12 +53,23 @@ set -g status-right 'NordVPN | status: #{nordvpn_status} - country: #{nordvpn_co
 - `#{nordvpn_server}` - current server.
 - `#{nordvpn_country}` - current connection country.
 - `#{nordvpn_city}` - current connection city.
+- `#{nordvpn_status_color}` - change foreground and background color based on the VPN status.
 
 ## Options
 
 Here are all available options with their default values.
 
-- `@nordvpn_exclude_server_domain true` - Remove `nordvpn.com` from the server name.
+```
+@nordvpn_exclude_server_domain true # remove "nordvpn.com" from the server name.
+
+@nordvpn_disconnected_fg_color "red" # foreground color when disconnected.
+@nordvpn_connecting_fg_color "yellow" # foreground color when connecting.
+@nordvpn_connected_fg_color "green" # foreground color when connected.
+
+@nordvpn_disconnected_bg_color "" # background color when disconnected.
+@nordvpn_connecting_bg_color "" # background color when connecting.
+@nordvpn_connected_bg_color "" # background color when connected.
+```
 
 You can set any of these options in your `.tmux.conf`, for example:
 

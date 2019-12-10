@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 source "$CURRENT_DIR/scripts/helpers.sh"
 
 commands=(
@@ -9,6 +8,7 @@ commands=(
   "#($CURRENT_DIR/scripts/server.sh)"
   "#($CURRENT_DIR/scripts/country.sh)"
   "#($CURRENT_DIR/scripts/city.sh)"
+  "#($CURRENT_DIR/scripts/status_color.sh)"
 )
 
 placeholders=(
@@ -16,6 +16,7 @@ placeholders=(
   "\#{nordvpn_server}"
   "\#{nordvpn_country}"
   "\#{nordvpn_city}"
+  "\#{nordvpn_status_color}"
 )
 
 do_interpolation() {
