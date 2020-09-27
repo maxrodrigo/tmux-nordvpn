@@ -16,7 +16,7 @@ If format strings are added to `status-right`, they should now be visible.
 
 ### Manual Installation
 
-Clone the repo:
+Clone the repository:
 
     $ git clone https://github.com/maxrodrigo/tmux-nordvpn ~/clone/path
 

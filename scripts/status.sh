@@ -3,9 +3,9 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 source "$CURRENT_DIR/helpers.sh"
 
-connected_text=$(get_tmux_option "@nordvpn_connected_text" "Conntected")
-connecting_text=$(get_tmux_option "@nordvpn_connecting_text" "Conntecting")
-disconnected_text=$(get_tmux_option "@nordvpn_disconnected_text" "Disconntected")
+connected_text=$(get_tmux_option "@nordvpn_connected_text" "Connected")
+connecting_text=$(get_tmux_option "@nordvpn_connecting_text" "Connecting")
+disconnected_text=$(get_tmux_option "@nordvpn_disconnected_text" "Disconnected")
 
 print_nordvpn_status() {
     status=$(nordvpn status | sed -n -e 's/^Status: \(.*\)/\1/p')
