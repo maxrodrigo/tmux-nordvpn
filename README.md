@@ -13,6 +13,7 @@
 
 ## Table of Contents
 
+* [Demo](#demo)
 * [Getting Started](#getting-started)
     * [Installation](#installation)
     * [Requirements](#requirements)
@@ -22,6 +23,10 @@
     * [Examples](#examples)
 * [Status Update Interval](#status-update-interval)
 * [Contributing](#contributing)
+
+## Demo
+
+![tmux-nordvpn demo](assets/demo.svg)
 
 ## Getting Started
 
