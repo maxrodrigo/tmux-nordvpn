@@ -1,37 +1,60 @@
-# Tmux NordVPN Status
+# NordVPN Tmux Plugin
 
-Tmux plugin to monitor [NordVPN](https://nordvpn.com/) connection status.
+![GitHub](https://img.shields.io/github/license/maxrodrigo/tmux-nordvpn)
 
-## Installation
+The best Tmux plugin to monitor [NordVPN](https://nordvpn.com/) connection status.
 
-### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
+## Table of Contents
 
-Add plugin to the list of TPM plugins in `.tmux.conf`:
+* [Getting Started](#getting-started)
+    * [Installation](#installation)
+    * [Requirements](#requirements)
+* [Usage](#usage)
+    * [Example](#example)
+    * [Supported Format Strings](#supported-format-strings)
+    * [Options](#options)
+* [Status Update Interval](#status-update-interval)
+* [Contributing](#contributing)
 
-    set -g @plugin 'maxrodrigo/tmux-nordvpn'
+## Getting Started
+
+### Installation
+
+#### Tmux Plugin Manager (recommended)
+
+Add plugin to the list of [TPM](https://github.com/tmux-plugins/tpm) plugins in `.tmux.conf`:
+
+```sh
+set -g @plugin 'maxrodrigo/tmux-nordvpn'
+```
 
 Hit `prefix + I` to fetch the plugin and source it.
 
 If format strings are added to `status-right`, they should now be visible.
 
-### Manual Installation
+#### Manual Installation
 
 Clone the repository:
 
-    $ git clone https://github.com/maxrodrigo/tmux-nordvpn ~/clone/path
+```sh
+git clone https://github.com/maxrodrigo/tmux-nordvpn ~/.tmux/tmux-nordvpn
+```
 
 Add this line to the bottom of `.tmux.conf`:
 
-    run-shell ~/clone/path/nordvpn.tmux
+```txt
+run-shell ~/.tmux/tmux-nordvpn/nordvpn.tmux
+```
 
-Reload TMUX environment:
+Reload Tmux environment:
 
-    # type this in terminal
-    $ tmux source-file ~/.tmux.conf
+```sh
+tmux source-file ~/.tmux.conf
+```
 
 If format strings are added to `status-right`, they should now be visible.
 
-## Requirements
+### Requirements
 
 The plugin relays on the NordVPN native application to pull the current status.
 The command line tool is required.
@@ -40,14 +63,15 @@ NordVPN setup tutorials: https://support.nordvpn.com/FAQ/Setup-tutorials/
 
 ## Usage
 
-Add the available format strings to the existing `status-right` or `status-left` tmux option.
-Example:
+Add the available format strings to the existing `status-right` or `status-left` Tmux option.
 
-```
+### Example
+
+```sh
 set -g status-right 'NordVPN: #{nordvpn_status_color}#{nordvpn_status} (#{nordvpn_country})'
 ```
 
-## Supported Format Strings
+### Supported Format Strings
 
 - `#{nordvpn_status}` - connection status.
 - `#{nordvpn_server}` - current server.
@@ -55,11 +79,11 @@ set -g status-right 'NordVPN: #{nordvpn_status_color}#{nordvpn_status} (#{nordvp
 - `#{nordvpn_city}` - current connection city.
 - `#{nordvpn_status_color}` - change foreground and background color based on the VPN status.
 
-## Options
+### Options
 
 Here are all available options with their default values.
 
-```
+```sh
 @nordvpn_exclude_server_domain true # remove "nordvpn.com" from the server name.
 
 @nordvpn_connected_text "Connected" # text to display when connected
@@ -77,7 +101,7 @@ Here are all available options with their default values.
 
 You can set any of these options in your `.tmux.conf`, for example:
 
-```
+```sh
 set -g @nordvpn_exclude_server_domain false
 set -g @nordvpn_connected_text 🍏
 set -g @nordvpn_connecting_text 🍊
@@ -88,7 +112,7 @@ set -g @nordvpn_disconnected_text 🍅
 
 Status update won't be instant. The duration depends on the `status-interval` Tmux option. You can set `status-interval` to a low number to make the refresh faster.
 
-```
+```sh
 set -g status-interval 5
 ```
 
