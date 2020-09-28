@@ -84,6 +84,7 @@ set -g status-right 'NordVPN: #{nordvpn_status_color}#{nordvpn_status} (#{nordvp
 - `#{nordvpn_server}` - current server.
 - `#{nordvpn_country}` - current connection country.
 - `#{nordvpn_city}` - current connection city.
+- `#{nordvpn_ip}` - current connection IP address.
 - `#{nordvpn_status_color}` - change foreground and background color based on the VPN status.
 
 ### Options

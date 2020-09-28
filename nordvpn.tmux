@@ -8,6 +8,7 @@ commands=(
   "#($CURRENT_DIR/scripts/server.sh)"
   "#($CURRENT_DIR/scripts/country.sh)"
   "#($CURRENT_DIR/scripts/city.sh)"
+  "#($CURRENT_DIR/scripts/ip.sh)"
   "#($CURRENT_DIR/scripts/status_color.sh)"
 )
 
@@ -16,6 +17,7 @@ placeholders=(
   "\#{nordvpn_server}"
   "\#{nordvpn_country}"
   "\#{nordvpn_city}"
+  "\#{nordvpn_ip}"
   "\#{nordvpn_status_color}"
 )
 
