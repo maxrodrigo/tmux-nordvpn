@@ -1,8 +1,15 @@
-# NordVPN Tmux Plugin
-
-![GitHub](https://img.shields.io/github/license/maxrodrigo/tmux-nordvpn)
-
-The best Tmux plugin to monitor [NordVPN](https://nordvpn.com/) connection status.
+<p align="center">
+    <a href="https://github.com/maxrodrigo/tmux-nordvpn">
+        <img src="assets/tmux-nordvpn-logo.png" alt="tmux-nordvpn logo" width="128">
+    </a>
+    <h3 align="center">NordVPN Tmux Plugin</h3>
+    <p align="center">
+        Monitor <a href="https://nordvpn.com/">NordVPN</a> connection status from Tmux.
+    </p>
+    <p align="center">
+        <img alt="GitHub" src="https://img.shields.io/github/license/maxrodrigo/tmux-nordvpn">
+    </p>
+</p>
 
 ## Table of Contents
 
