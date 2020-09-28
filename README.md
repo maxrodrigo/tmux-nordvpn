@@ -17,9 +17,9 @@
     * [Installation](#installation)
     * [Requirements](#requirements)
 * [Usage](#usage)
-    * [Example](#example)
     * [Supported Format Strings](#supported-format-strings)
     * [Options](#options)
+    * [Examples](#examples)
 * [Status Update Interval](#status-update-interval)
 * [Contributing](#contributing)
 
@@ -70,9 +70,7 @@ NordVPN setup tutorials: https://support.nordvpn.com/FAQ/Setup-tutorials/
 
 ## Usage
 
-Add the available format strings to the existing `status-right` or `status-left` Tmux option.
-
-### Example
+Add any of the [supported format strings](#supported-format-strings) to `status-right` or `status-left`.
 
 ```sh
 set -g status-right 'NordVPN: #{nordvpn_status_color}#{nordvpn_status} (#{nordvpn_country})'
@@ -107,13 +105,23 @@ Here are all available options with their default values.
 @nordvpn_disconnected_bg_color "" # background color when disconnected.
 ```
 
-You can set any of these options in your `.tmux.conf`, for example:
+### Examples
 
 ```sh
-set -g @nordvpn_exclude_server_domain false
-set -g @nordvpn_connected_text 🍏
-set -g @nordvpn_connecting_text 🍊
-set -g @nordvpn_disconnected_text 🍅
+# .tmux.conf
+set -g @nordvpn_connected_text "c"
+set -g @nordvpn_connecting_text "…"
+set -g @nordvpn_disconnected_text "d"
+
+set -g status-left "#[fg=blue]vpn: #{nordvpn_status_color}#{nordvpn_status} #[fg=cyan]#{nordvpn_server}"
+```
+
+```sh
+# .tmux.conf
+set -g @nordvpn_connected_text "Connected to"
+set -g @nordvpn_connecting_text "Connecting to"
+
+set -g status-left "NordVPN #{nordvpn_status_color}#{nordvpn_status} #{nordvpn_city}, #{nordvpn_country} [#{nordvpn_ip}]"
 ```
 
 ## Status Update Interval
