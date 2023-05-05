@@ -8,7 +8,7 @@ connecting_text=$(get_tmux_option "@nordvpn_connecting_text" "Connecting")
 disconnected_text=$(get_tmux_option "@nordvpn_disconnected_text" "Disconnected")
 
 print_nordvpn_status() {
-    status=$(nordvpn status | sed -n -e 's/^Status: \(.*\)/\1/p')
+    status=$(nordvpn status | grep 'Status:')
 
     if [[ $status == "Disconnected" ]]; then
         echo "$disconnected_text"
